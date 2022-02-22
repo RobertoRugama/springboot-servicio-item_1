@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import com.formacionbdi.springboot.app.item.models.Item;
 import com.formacionbdi.springboot.app.item.models.Producto;
 
-@Service
+@Service("serviceRestTemplate")
 public class ItemServiceImpl implements ItemService {
 
 	@Autowired
@@ -21,7 +21,7 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public List<Item> FindAll() {
 		// TODO Auto-generated method stub
-		List<Producto>productos = Arrays.asList(clienteRest.getForObject("http://localhost:8001/listar", Producto[].class));
+		List<Producto>productos = Arrays.asList(clienteRest.getForObject("http://servicio-productos/listar", Producto[].class));
 		return productos.stream().map(p-> new Item(p,1)).collect(Collectors.toList());
 	}
 
@@ -30,7 +30,7 @@ public class ItemServiceImpl implements ItemService {
 		// TODO Auto-generated method stub
 		Map<String, String> pathVariables = new HashMap<String, String>();
 		pathVariables.put("id", id.toString());
-		Producto producto = clienteRest.getForObject("http://localhost:8001/show/{id}", Producto.class, pathVariables);
+		Producto producto = clienteRest.getForObject("http://servicio-productos/show/{id}", Producto.class, pathVariables);
 		return new Item(producto, cantidad);
 	}
 

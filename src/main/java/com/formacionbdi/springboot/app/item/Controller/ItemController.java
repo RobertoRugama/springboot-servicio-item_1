@@ -15,7 +15,8 @@ import com.formacionbdi.springboot.app.item.models.service.ItemService;
 public class ItemController {
 
 	@Autowired
-	@Qualifier("serviceFeign")
+	//@Qualifier("serviceFeign")  //Balanceo_de_carga_usando_ribbon_y_feign
+	@Qualifier("serviceRestTemplate")  // Balanceo_de_Carga_usando_ribbon_y_RestTemplate
 	private ItemService itemService;
 	
 	@GetMapping("/listar")
