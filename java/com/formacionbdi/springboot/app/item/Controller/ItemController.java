@@ -17,13 +17,14 @@ import com.formacionbdi.springboot.app.item.models.Item;
 import com.formacionbdi.springboot.app.item.models.Producto;
 import com.formacionbdi.springboot.app.item.models.service.ItemService;
 
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+//import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 //import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @RestController
 public class ItemController {
 
 	private final Logger logger = LoggerFactory.getLogger(ItemController.class);
+	@SuppressWarnings("rawtypes")
 	@Autowired
 	private CircuitBreakerFactory cbFactory;
 	@Autowired

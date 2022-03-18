@@ -43,5 +43,10 @@
     "name": "servicio-productos.ribbon.listOfServers",
     "type": "java.lang.String",
     "description": "A description for 'servicio-productos.ribbon.listOfServers'"
+  },
+  {
+    "name": "resilience4j.timelimiter.config.defecto.timeout-duration",
+    "type": "java.lang.String",
+    "description": "A description for 'resilience4j.timelimiter.config.defecto.timeout-duration'"
   }
 ]}
